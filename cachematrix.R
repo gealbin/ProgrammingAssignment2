@@ -1,9 +1,9 @@
 ## This Script contains two functions that cache the inverse of a matrix. 
-## The idea is that one the inverse is calculated its stored into the cache,
+## The idea is that once the inverse is calculated its stored into the cache,
 ## so there is no need to calculate it again
 
 ## This function creates a special "matrix" object that can cache its inverse. 
-## The function output is a list of functions functions that can: 
+## The function's output is a list of functions that can: 
 ## set the matrix, get the matrix, set the inverse of a Matrix and get the inverse
 makeCacheMatrix <- function(x = matrix()) {
 inv <- NULL                                                 ## inicialize the inv object, wich will cache the inverse of x
@@ -19,12 +19,12 @@ list(set = set, get = get,setinv = setinv,getinv = getinv)  ## output list with 
 }
 
 
-## This function calculates the inv using the list created with the above function as input
+## This function calculates the inv of a matrix using a list created with the function makeCacheMatrix as input
 
 cacheSolve <- function(x, ...) {
     inv <- x$getinv()                             ## Get the inverse cached and check if it was calculated
     if(!is.null(inv)) {
-        message("getting cached data")            ## If inverse was calculated return it and print a message
+        message("getting cached data")            ## If inverse was calculated then return the value and print a message
         return(inv)
     }
     matr <- x$get()                               ## Else get the matrix
